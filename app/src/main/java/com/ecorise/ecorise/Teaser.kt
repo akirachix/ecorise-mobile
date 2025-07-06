@@ -42,7 +42,7 @@ fun TeaserScreen(onGetStarted: () -> Unit) {
             contentDescription = "EcoRise Logo",
             modifier = Modifier
                 .fillMaxWidth()
-                .height(80.dp),
+                .height(220.dp),
             contentScale = ContentScale.Fit
         )
         Spacer(modifier = Modifier.height(64.dp))
