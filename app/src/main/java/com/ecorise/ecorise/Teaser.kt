@@ -63,14 +63,14 @@ fun TeaserScreen(onGetStarted: () -> Unit) {
             ) {
                 Box(
                     modifier = Modifier
-                        .background(Color(0xFF800000), RoundedCornerShape(8.dp))
+                        .background(Color(0xFF800000), RoundedCornerShape(10.dp))
                         .padding(horizontal = 16.dp, vertical = 8.dp)
                 ) {
                     Text(
                         text = "Welcome to EcoRise",
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
-                        fontSize = 32.sp
+                        fontSize = 30.sp
                     )
                 }
                 Spacer(modifier = Modifier.height(120.dp))

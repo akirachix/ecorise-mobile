@@ -45,7 +45,7 @@ fun CreateAccountScreen(onCreateAccount: () -> Unit) {
         Text(
             text = "We connect you to recycling company",
             fontWeight = FontWeight.Bold,
-            fontSize = 32.sp,
+            fontSize = 30.sp,
             textAlign = TextAlign.Center,
             color = Color(0xFF800000)
         )
