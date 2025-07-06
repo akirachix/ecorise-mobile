@@ -19,6 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Outline
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -27,12 +29,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+
 @Composable
 fun TeaserScreen(onGetStarted: () -> Unit) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
         Image(
             painter = painterResource(id = R.drawable.ecorise),
             contentDescription = "EcoRise Logo",
@@ -41,7 +45,9 @@ fun TeaserScreen(onGetStarted: () -> Unit) {
                 .height(80.dp),
             contentScale = ContentScale.Fit
         )
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(64.dp))
+
+
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -61,31 +67,41 @@ fun TeaserScreen(onGetStarted: () -> Unit) {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+
                 Box(
                     modifier = Modifier
-                        .background(Color(0xFF800000), RoundedCornerShape(10.dp))
+                        .background(Color(0xFF800000), RectangleShape)
                         .padding(horizontal = 16.dp, vertical = 8.dp)
+                        .align(Alignment.End)
+                        .padding(end = 1.dp)
                 ) {
                     Text(
                         text = "Welcome to EcoRise",
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
-                        fontSize = 30.sp
+                        fontSize = 30.sp,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.align(Alignment.Center)
                     )
                 }
                 Spacer(modifier = Modifier.height(120.dp))
+
+
                 Button(
                     onClick = onGetStarted,
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF800000)),
                     modifier = Modifier
-                        .fillMaxWidth(0.7f)
-                        .height(50.dp)
+                        .fillMaxWidth(0.5f)
+                        .height(50.dp),
+                    shape = RoundedCornerShape(6.dp)
+
                 ) {
                     Text(
                         "Get Started",
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
                         fontSize = 24.sp
+
                     )
                 }
             }
@@ -93,12 +109,8 @@ fun TeaserScreen(onGetStarted: () -> Unit) {
     }
 }
 
-
-
 @Preview(showBackground = true)
 @Composable
 fun FirstScreenPreview() {
     com.ecorise.ecorise.TeaserScreen(onGetStarted = {})
 }
-
-
