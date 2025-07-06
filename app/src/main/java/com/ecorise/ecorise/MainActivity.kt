@@ -19,9 +19,14 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             EcoriseTheme {
-
+                OtpScreen()
             }
         }
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun  OtpScreenPreviewPreview() {
+    OtpScreen()
+}
