@@ -19,9 +19,13 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             EcoriseTheme {
+                CreateAccountScreen()
+
 
             }
         }
     }
 }
+
+
 
