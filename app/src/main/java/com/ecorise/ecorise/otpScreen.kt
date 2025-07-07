@@ -39,11 +39,12 @@ fun OtpScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp)
-                .padding(top = 150.dp),
+                .padding(top = 113.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("OTP Verification", fontSize = 25.sp, fontWeight = FontWeight.Bold)
-            Text("Enter the code from the sms we sent to", fontSize = 18.sp)
+            Text("OTP Verification", fontSize = 38.sp, fontWeight = FontWeight.Bold, color =Color(0xFF8B0000))
+            Spacer(modifier = Modifier.height(20.dp))
+            Text("Enter the code from the sms we sent to", fontSize = 19.sp)
             Text("+254700000000", fontWeight = FontWeight.Bold, fontSize = 18.sp)
             Spacer(modifier = Modifier.height(30.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -54,7 +55,7 @@ fun OtpScreen() {
                             .border(
                                 width = 2.dp,
                                 color = Color(0xFFDA6304),
-                                shape = RoundedCornerShape(10.dp)
+                                shape = RoundedCornerShape(5.dp)
                             )
                             .clickable { isKeypadVisible = true },
                         contentAlignment = Alignment.Center
@@ -67,16 +68,16 @@ fun OtpScreen() {
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(24.dp))
             Text(
-                text = "Don't receive the OTP? RESEND", fontSize = 18.sp,
+                text = "Don't receive the OTP? RESEND", fontSize = 23.sp,
                 modifier = Modifier.clickable {
                     if (countdown == 0) countdown = 59
                 },
                 fontWeight = FontWeight.Bold,
-                color = if (countdown == 0) maroon else Color.Gray
+                color = if (countdown == 0) Color(0xFF8B0000) else Color(0xFF8B0000).copy(alpha = 0.8f)
             )
-            Text("resend code in 00:${countdown.toString().padStart(2, '0')} sec", fontSize = 18.sp)
+            Text("resend code in 00:${countdown.toString().padStart(2, '0')} sec", fontSize = 21.sp)
         }
         val submitButton = @Composable {
             Button(
@@ -86,10 +87,10 @@ fun OtpScreen() {
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp, vertical = 12.dp),
 
-                shape = RoundedCornerShape(10.dp),
+                shape = RoundedCornerShape(5.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFF8B0000),
-                    disabledContainerColor = Color(0xFF8B0000).copy(alpha = 0.6f)
+                    disabledContainerColor = Color(0xFF8B0000).copy(alpha = 0.8f)
                 )
             ) {
                 Text(
@@ -155,13 +156,13 @@ fun OtpScreen() {
                                     text = key,
                                     fontSize = 30.sp,
                                     fontWeight = FontWeight.Black,
-                                    color = if (key == "✓") maroon else Color.Black
+                                    color = if (key == "✓")  Color(0xFF8B0000) else Color.Black
                                 )
                             }
                         }
                     }
                 }
-                Spacer(modifier = Modifier.height(13.dp))
+                Spacer(modifier = Modifier.height(20.dp))
                 submitButton()
             }
         }
