@@ -100,12 +100,14 @@ fun CreateAccountScreen() {
                     text = "Email",
                     fontSize = 17.sp,
                 )
-
                 OutlinedTextField(
                     value = email,
                     onValueChange = { email = it },
                     label = { Text("") },
                     leadingIcon = { Icon(Icons.Default.Email, contentDescription = null) },
+                    keyboardOptions = KeyboardOptions.Default.copy(
+                        keyboardType = KeyboardType.Email
+                    ),
                     modifier = Modifier.fillMaxWidth().padding(bottom = 15.dp)
                 )
             }
