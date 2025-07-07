@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
@@ -27,12 +28,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun CreateAccountScreen() {
@@ -44,51 +48,99 @@ fun CreateAccountScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center
+            .padding(16.dp).padding(bottom = 50.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = "Create Account",
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFf942222),
             style = MaterialTheme.typography.headlineMedium,
-            modifier = Modifier.padding(bottom = 16.dp)
+            modifier = Modifier.padding(bottom = 56.dp, top = 20.dp)
         )
-        OutlinedTextField(
-            value = username,
-            onValueChange = { username = it },
-            label = { Text("Username") },
-            leadingIcon = { Icon(Icons.Default.Person, contentDescription = null) },
+        Column (
             modifier = Modifier.fillMaxWidth()
-        )
-        OutlinedTextField(
-            value = phoneNumber,
-            onValueChange = { phoneNumber = it },
-            label = { Text("Phone number") },
-            leadingIcon = { Icon(Icons.Default.Phone, contentDescription = null) },
+        ) {
+            Text(
+                text = "Username",
+                fontSize = 17.sp,
+            )
+            OutlinedTextField(
+                value = username,
+                onValueChange = { username = it },
+                label = { Text("") },
+                leadingIcon = { Icon(Icons.Default.Person, contentDescription = null) },
+                modifier = Modifier.fillMaxWidth().padding(bottom = 15.dp)
+            )
+        }
+        Column (
             modifier = Modifier.fillMaxWidth()
-        )
-        OutlinedTextField(
-            value = email,
-            onValueChange = { email = it },
-            label = { Text("Email") },
-            leadingIcon = { Icon(Icons.Default.Email, contentDescription = null) },
-            modifier = Modifier.fillMaxWidth()
-        )
-        OutlinedTextField(
-            value = password,
-            onValueChange = { password = it },
-            label = { Text("Password") },
-            leadingIcon = { Icon(Icons.Default.Lock, contentDescription = null) },
-            modifier = Modifier.fillMaxWidth(),
-            visualTransformation = PasswordVisualTransformation()
-        )
-        OutlinedTextField(
-            value = confirmPassword,
-            onValueChange = { confirmPassword = it },
-            label = { Text("Confirm password") },
-            leadingIcon = { Icon(Icons.Default.Lock, contentDescription = null) },
-            modifier = Modifier.fillMaxWidth(),
-            visualTransformation = PasswordVisualTransformation()
-        )
+        ) {
+            Text(
+                text = "Phone number",
+                fontSize = 17.sp,
+            )
+            OutlinedTextField(
+                value = phoneNumber,
+                onValueChange = { input ->
+                    phoneNumber = input.filter { it.isDigit() }
+                },
+                label = { Text("") },
+                leadingIcon = { Icon(Icons.Default.Phone, contentDescription = null) },
+                keyboardOptions = KeyboardOptions.Default.copy(
+                    keyboardType = KeyboardType.Number
+                ),
+                modifier = Modifier.fillMaxWidth().padding(bottom = 15.dp)
+            )
+        }
+            Column (
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = "Email",
+                    fontSize = 17.sp,
+                )
+
+                OutlinedTextField(
+                    value = email,
+                    onValueChange = { email = it },
+                    label = { Text("") },
+                    leadingIcon = { Icon(Icons.Default.Email, contentDescription = null) },
+                    modifier = Modifier.fillMaxWidth().padding(bottom = 15.dp)
+                )
+            }
+                Column (
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        text = "Password",
+                        fontSize = 17.sp,
+                    )
+                    OutlinedTextField(
+                        value = password,
+                        onValueChange = { password = it },
+                        label = { Text("") },
+                        leadingIcon = { Icon(Icons.Default.Lock, contentDescription = null) },
+                        modifier = Modifier.fillMaxWidth().padding(bottom = 15.dp),
+                        visualTransformation = PasswordVisualTransformation()
+                    )
+                }
+                    Column (
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text(
+                            text = "Confirm Password",
+                            fontSize = 17.sp,
+                        )
+                        OutlinedTextField(
+                            value = confirmPassword,
+                            onValueChange = { confirmPassword = it },
+                            label = { Text("") },
+                            leadingIcon = { Icon(Icons.Default.Lock, contentDescription = null) },
+                            modifier = Modifier.fillMaxWidth().padding(bottom = 15.dp),
+                            visualTransformation = PasswordVisualTransformation()
+                        )
+                    }
         Button(
             onClick = {  },
             modifier = Modifier
@@ -119,6 +171,6 @@ fun CreateAccountScreen() {
 
 @Preview(showBackground = true)
 @Composable
-fun CreateAccountPreview() {
+fun CreateAccountPreview(){
     CreateAccountScreen()
 }
