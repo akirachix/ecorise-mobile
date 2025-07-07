@@ -45,7 +45,7 @@ fun PasswordScreen() {
         Text(
             text = "Enter New Password",
             fontSize = 24.sp,
-            color = Color(0xFF800000), // Maroon color
+            color = Color(0xFF800000), 
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .fillMaxWidth(0.7f)
@@ -78,7 +78,7 @@ fun PasswordScreen() {
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        // Confirm Password Input
+        
         Text(
             text = "Confirm Password",
             fontSize = 20.sp,
