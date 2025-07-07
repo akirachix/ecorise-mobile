@@ -89,7 +89,7 @@ fun OtpScreen() {
                 shape = RoundedCornerShape(10.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFF8B0000),
-                    disabledContainerColor = Color.LightGray
+                    disabledContainerColor = Color(0xFF8B0000).copy(alpha = 0.6f)
                 )
             ) {
                 Text(
