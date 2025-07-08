@@ -23,7 +23,24 @@ class MainActivity : ComponentActivity() {
 
 
 
+
+
+
             EcoriseTheme {
+
+                LoginScreen()
+
+            }
+        }
+    }
+}
+
+
+@Composable
+fun previewloginScreen(){
+    LoginScreen()
+}
+
                 OtpScreen()
             }
 
@@ -36,3 +53,4 @@ class MainActivity : ComponentActivity() {
 fun  OtpScreenPreviewPreview() {
     OtpScreen()
 }
+
