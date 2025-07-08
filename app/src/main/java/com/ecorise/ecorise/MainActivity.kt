@@ -19,6 +19,20 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             EcoriseTheme {
+
+                LoginScreen()
+
+            }
+        }
+    }
+}
+
+
+@Composable
+fun previewloginScreen(){
+    LoginScreen()
+}
+
                 OtpScreen()
             }
         }
@@ -30,3 +44,4 @@ class MainActivity : ComponentActivity() {
 fun  OtpScreenPreviewPreview() {
     OtpScreen()
 }
+
