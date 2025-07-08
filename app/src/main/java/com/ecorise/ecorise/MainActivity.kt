@@ -18,11 +18,22 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+
             EcoriseTheme {   EcoRiseApp() }
 
 
+
+
+            EcoriseTheme {
+                OtpScreen()
+            }
 
         }
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun  OtpScreenPreviewPreview() {
+    OtpScreen()
+}
