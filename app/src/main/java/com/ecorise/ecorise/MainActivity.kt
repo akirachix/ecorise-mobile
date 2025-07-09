@@ -27,6 +27,8 @@ class MainActivity : ComponentActivity() {
 
 
             EcoriseTheme {
+                CreateAccountScreen()
+                CreateAccountScreen()
 
                 LoginScreen()
 
@@ -34,6 +36,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 
 
 @Composable
@@ -53,4 +56,5 @@ fun previewloginScreen(){
 fun  OtpScreenPreviewPreview() {
     OtpScreen()
 }
+
 
