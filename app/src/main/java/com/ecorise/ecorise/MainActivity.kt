@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.ecorise.ecorise.ui.theme.EcoriseTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +20,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 
-            EcoriseTheme {   EcoRiseApp() }
+//            EcoriseTheme {   EcoRiseApp() }
+
+
 
 
 
@@ -27,10 +30,13 @@ class MainActivity : ComponentActivity() {
 
 
             EcoriseTheme {
-                CreateAccountScreen()
-                CreateAccountScreen()
+//                CreateAccountScreen()
+//                CreateAccountScreen()
+//
+//                LoginScreen()
+                val navController = rememberNavController()
+                AuthNavGraph(navController)
 
-                LoginScreen()
 
             }
         }
@@ -39,17 +45,7 @@ class MainActivity : ComponentActivity() {
 
 
 
-@Composable
-fun previewloginScreen(){
-    LoginScreen()
-}
 
-                OtpScreen()
-            }
-
-        }
-    }
-}
 
 @Preview(showBackground = true)
 @Composable

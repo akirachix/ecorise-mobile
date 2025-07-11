@@ -16,8 +16,12 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+
 @Composable
-fun OtpScreen() {
+fun OtpScreen(
+    onSubmit: () -> Unit = {}
+) {
     val otpLength = 4
     var otp by remember { mutableStateOf("") }
     var isKeypadVisible by remember { mutableStateOf(false) }
@@ -81,7 +85,7 @@ fun OtpScreen() {
         }
         val submitButton = @Composable {
             Button(
-                onClick = { },
+                onClick = {  },
                 enabled = isSubmitEnabled,
                 modifier = Modifier
                     .fillMaxWidth()

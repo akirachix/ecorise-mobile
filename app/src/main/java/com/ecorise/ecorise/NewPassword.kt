@@ -34,7 +34,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun PasswordScreen() {
+fun PasswordScreen(
+    onSubmit: () -> Unit = {}
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()

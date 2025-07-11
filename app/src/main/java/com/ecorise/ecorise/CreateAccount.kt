@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun CreateAccountScreen(onCreateAccount: () -> Unit) {
+fun TeaserTwoScreen(onTeaserTwo: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -51,7 +51,7 @@ fun CreateAccountScreen(onCreateAccount: () -> Unit) {
         )
         Spacer(Modifier.height(64.dp))
         Button(
-            onClick = onCreateAccount,
+            onClick = onTeaserTwo,
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF800000)),
             modifier = Modifier
                 .fillMaxWidth(0.7f)
@@ -71,5 +71,6 @@ fun CreateAccountScreen(onCreateAccount: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun SecondScreenPreview() {
-    com.ecorise.ecorise.CreateAccountScreen(onCreateAccount = {})
+//    com.ecorise.ecorise.TeaserTwoScreen(onTeaserTwo =  {})
+    TeaserTwoScreen(onTeaserTwo = {})
 }
