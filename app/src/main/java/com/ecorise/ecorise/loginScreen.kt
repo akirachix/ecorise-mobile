@@ -42,9 +42,9 @@ fun LoginScreen(
         Text(
             text = "Login",
             color = Color(0xFf942222),
-            fontSize = 28.sp,
+            fontSize = 30.sp,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 48.dp)
+            modifier = Modifier.padding(bottom = 48.dp, top = 10.dp)
         )
 
 
@@ -54,7 +54,7 @@ fun LoginScreen(
             Text(
                 text = "Email",
                 fontWeight = FontWeight.Medium,
-                fontSize = 15.sp,
+                fontSize = 17.sp,
                 modifier = Modifier.padding(bottom = 8.dp)
             )
             OutlinedTextField(
@@ -77,7 +77,7 @@ fun LoginScreen(
             Text(
                 text = "Password",
                 fontWeight = FontWeight.Medium,
-                fontSize = 15.sp,
+                fontSize = 17.sp,
                 modifier = Modifier.padding(bottom = 8.dp)
             )
             OutlinedTextField(
@@ -90,6 +90,8 @@ fun LoginScreen(
                     .fillMaxWidth()
                     .height(52.dp),
 
+
+
                 )
         }
         Spacer(modifier = Modifier.height(8.dp))
@@ -97,12 +99,13 @@ fun LoginScreen(
         Row(
             Modifier
                 .fillMaxWidth()
-                .padding(top = 30.dp, bottom = 40.dp),
-            horizontalArrangement = Arrangement.Start
+                .padding(top = 30.dp, bottom = 80.dp),
+            horizontalArrangement = Arrangement.Start,
+
         ) {
             Text(
                 text = "Forgot password?",
-                fontSize = 14.sp,
+                fontSize = 17.sp,
                 modifier = Modifier.clickable { onForgotPasswordClick() }
             )
         }
@@ -123,19 +126,19 @@ fun LoginScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 28.dp),
-            horizontalArrangement = Arrangement.Center
+            horizontalArrangement = Arrangement.Start
         ) {
             Text(
                 text = "Don't have an account?",
                 color = Color(0xFF232323),
-                fontSize = 14.sp
+                fontSize = 17.sp
             )
             Spacer(modifier = Modifier.width(4.dp))
             Text(
                 text = "Sign Up",
                 color = Color(0xFf942222),
                 fontWeight = FontWeight.Bold,
-                fontSize = 14.sp,
+                fontSize = 17.sp,
                 modifier = Modifier.clickable { onSignUpClick() }
             )
         }

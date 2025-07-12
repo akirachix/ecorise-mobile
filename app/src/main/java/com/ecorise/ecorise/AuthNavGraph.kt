@@ -18,7 +18,7 @@ fun AuthNavGraph(navController: NavHostController) {
             EcoRiseSplashScreen()
             LaunchedEffect(Unit) {
                     delay(2000)
-                     navController.navigate(AuthNavRoutes.TEASER) { popUpTo(AuthNavRoutes.SPLASH) { inclusive = true } }
+                     navController.navigate(AuthNavRoutes.CREATE_ACCOUNT) { popUpTo(AuthNavRoutes.SPLASH) { inclusive = true } }
 
         }}
         composable(AuthNavRoutes.TEASER) {
@@ -33,7 +33,7 @@ fun AuthNavGraph(navController: NavHostController) {
         }
         composable(AuthNavRoutes.CREATE_ACCOUNT) {
             CreateAccountScreen(
-                onSubmit = { navController.navigate(AuthNavRoutes.TEASER) },
+                onSubmit = { navController.navigate(AuthNavRoutes.OTP) },
                 onLoginClick = { navController.navigate(AuthNavRoutes.LOGIN) }
             )
         }
@@ -58,7 +58,8 @@ fun AuthNavGraph(navController: NavHostController) {
         }
         composable(AuthNavRoutes.OTP) {
             OtpScreen(
-                onSubmit = { navController.navigate(AuthNavRoutes.LOGIN) }
+                onSubmit = { navController.navigate(AuthNavRoutes.LOGIN) },
+                onLoginClick = {navController.navigate(AuthNavRoutes.LOGIN)}
             )
         }
     }}

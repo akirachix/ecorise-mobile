@@ -147,7 +147,7 @@ fun CreateAccountScreen(
                         )
                     }
         Button(
-            onClick = onLoginClick,
+            onClick = onSubmit,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(72.dp)
@@ -168,7 +168,7 @@ fun CreateAccountScreen(
                 text = "Login",
                 color = Color(0xFF800020),
                 fontWeight = FontWeight.Bold,
-//                modifier = Modifier.clickable { LoginScreen({onSubmit}) }
+              modifier = Modifier.clickable { onLoginClick() }
             )
         }
     }

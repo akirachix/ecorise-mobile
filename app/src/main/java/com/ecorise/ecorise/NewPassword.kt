@@ -106,7 +106,7 @@ fun PasswordScreen(
 
 
         Button(
-            onClick = {  },
+            onClick = onSubmit,
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF800000),
                 contentColor = Color.White
