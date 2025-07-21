@@ -19,38 +19,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-
-//            EcoriseTheme {   EcoRiseApp() }
-
-
-
-
-
-
-
-
             EcoriseTheme {
-//                CreateAccountScreen()
-//                CreateAccountScreen()
-//
-//                LoginScreen()
                 val navController = rememberNavController()
                 AuthNavGraph(navController)
-
-
             }
         }
     }
 }
 
-
-
-
-
 @Preview(showBackground = true)
 @Composable
 fun  OtpScreenPreviewPreview() {
-//    OtpScreen()
+    // OtpScreen()
 }
-
-

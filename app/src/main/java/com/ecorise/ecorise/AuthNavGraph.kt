@@ -1,5 +1,6 @@
 package com.ecorise.ecorise
 
+import MainScreen
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.tooling.preview.Preview
@@ -17,13 +18,13 @@ fun AuthNavGraph(navController: NavHostController) {
         composable(AuthNavRoutes.SPLASH) {
             EcoRiseSplashScreen()
             LaunchedEffect(Unit) {
-                    delay(2000)
-                     navController.navigate(AuthNavRoutes.CREATE_ACCOUNT) { popUpTo(AuthNavRoutes.SPLASH) { inclusive = true } }
+                delay(2000)
+                navController.navigate(AuthNavRoutes.TEASER_TWO) { popUpTo(AuthNavRoutes.SPLASH) { inclusive = true } }
 
-        }}
+            }}
         composable(AuthNavRoutes.TEASER) {
             TeaserScreen(
-                onGetStarted = { navController.navigate(AuthNavRoutes.TEASER_TWO) }
+                onGetStarted = { navController.navigate(AuthNavRoutes.SPLASH) }
             )
         }
         composable(AuthNavRoutes.TEASER_TWO) {
@@ -33,13 +34,13 @@ fun AuthNavGraph(navController: NavHostController) {
         }
         composable(AuthNavRoutes.CREATE_ACCOUNT) {
             CreateAccountScreen(
-                onSubmit = { navController.navigate(AuthNavRoutes.OTP) },
+                onSubmit = { navController.navigate(AuthNavRoutes.LOGIN) },
                 onLoginClick = { navController.navigate(AuthNavRoutes.LOGIN) }
             )
         }
         composable(AuthNavRoutes.LOGIN) {
             LoginScreen(
-                onLoginClick = { navController.navigate(AuthNavRoutes.TEASER) },
+                onLoginClick = { navController.navigate(AuthNavRoutes.HOME) },
                 onSignUpClick = { navController.navigate(AuthNavRoutes.CREATE_ACCOUNT) },
                 onForgotPasswordClick = { navController.navigate(AuthNavRoutes.FORGOT_PASSWORD) }
             )
@@ -48,19 +49,21 @@ fun AuthNavGraph(navController: NavHostController) {
         composable(AuthNavRoutes.FORGOT_PASSWORD) {
             ForgotPasswordScreen(
                 onBackToLogin = { navController.popBackStack() },
-                onSend = { navController.navigate(AuthNavRoutes.PASSWORD) }
+                onSend = { navController.navigate(AuthNavRoutes.OTP) }
             )
         }
         composable(AuthNavRoutes.PASSWORD) {
             PasswordScreen(
-                onSubmit = { navController.navigate(AuthNavRoutes.OTP) }
+                onSubmit = { navController.navigate(AuthNavRoutes.LOGIN) }
             )
         }
         composable(AuthNavRoutes.OTP) {
             OtpScreen(
-                onSubmit = { navController.navigate(AuthNavRoutes.LOGIN) },
-                onLoginClick = {navController.navigate(AuthNavRoutes.LOGIN)}
+                onSubmit = { navController.navigate(AuthNavRoutes.TEASER) },
+                onLoginClick = {navController.navigate(AuthNavRoutes.PASSWORD)}
             )
         }
+        composable(AuthNavRoutes.HOME) {
+            MainScreen()
+        }
     }}
-

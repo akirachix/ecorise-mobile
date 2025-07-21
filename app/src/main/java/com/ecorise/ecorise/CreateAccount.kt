@@ -23,6 +23,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.material3.Text
+import androidx.navigation.NavHostController
 
 @Composable
 fun TeaserTwoScreen(onTeaserTwo: () -> Unit) {
@@ -68,9 +70,17 @@ fun TeaserTwoScreen(onTeaserTwo: () -> Unit) {
         }
     }
 }
+
+//@Composable
+//fun CreateAccountScreen(navController: NavHostController) {
+//    Text(text = "Create Account Screen")
+//
+//}
 @Preview(showBackground = true)
 @Composable
 fun SecondScreenPreview() {
-//    com.ecorise.ecorise.TeaserTwoScreen(onTeaserTwo =  {})
     TeaserTwoScreen(onTeaserTwo = {})
 }
+
+
+
