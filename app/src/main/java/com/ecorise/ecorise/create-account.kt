@@ -39,7 +39,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun CreateAccountScreen() {
+fun CreateAccountScreen(
+    onLoginClick: () -> Unit,
+    onSubmit: () -> Unit,
+) {
     var username by remember { mutableStateOf("") }
     var phoneNumber by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -144,7 +147,7 @@ fun CreateAccountScreen() {
                         )
                     }
         Button(
-            onClick = {  },
+            onClick = onSubmit,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(72.dp)
@@ -165,7 +168,7 @@ fun CreateAccountScreen() {
                 text = "Login",
                 color = Color(0xFF800020),
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.clickable { /* Navigate to Login */ }
+              modifier = Modifier.clickable { onLoginClick() }
             )
         }
     }
@@ -174,5 +177,5 @@ fun CreateAccountScreen() {
 @Preview(showBackground = true)
 @Composable
 fun CreateAccountPreview(){
-    CreateAccountScreen()
+//    CreateAccountScreen()
 }

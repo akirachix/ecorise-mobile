@@ -16,8 +16,14 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+
 @Composable
-fun OtpScreen() {
+fun OtpScreen(
+    onLoginClick: () -> Unit,
+   onSubmit: () -> Unit = {}
+
+) {
     val otpLength = 4
     var otp by remember { mutableStateOf("") }
     var isKeypadVisible by remember { mutableStateOf(false) }
@@ -42,9 +48,9 @@ fun OtpScreen() {
                 .padding(top = 113.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("OTP Verification", fontSize = 38.sp, fontWeight = FontWeight.Bold, color =Color(0xFF8B0000))
+            Text("OTP Verification", fontSize = 30.sp, fontWeight = FontWeight.Bold, color =Color(0xFF8B0000))
             Spacer(modifier = Modifier.height(20.dp))
-            Text("Enter the code from the sms we sent to", fontSize = 19.sp)
+            Text("Enter the code from the sms we sent to", fontSize = 17.sp)
             Text("+254700000000", fontWeight = FontWeight.Bold, fontSize = 18.sp)
             Spacer(modifier = Modifier.height(30.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -81,7 +87,7 @@ fun OtpScreen() {
         }
         val submitButton = @Composable {
             Button(
-                onClick = { },
+                onClick = onSubmit,
                 enabled = isSubmitEnabled,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -97,7 +103,8 @@ fun OtpScreen() {
                     text = "Submit",
                     color = Color.White,
                     fontWeight = FontWeight.Bold,
-                    fontSize =  20.sp
+                    fontSize =  20.sp,
+                    modifier = Modifier.clickable { onLoginClick() }
                 )
             }
         }
@@ -173,5 +180,5 @@ fun OtpScreen() {
 @Preview(showBackground = true)
 @Composable
 fun OtpScreenPreview() {
-    OtpScreen()
+//    OtpScreen()
 }

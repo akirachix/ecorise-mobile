@@ -23,9 +23,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.material3.Text
+import androidx.navigation.NavHostController
 
 @Composable
-fun CreateAccountScreen(onCreateAccount: () -> Unit) {
+fun TeaserTwoScreen(onTeaserTwo: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -51,7 +53,7 @@ fun CreateAccountScreen(onCreateAccount: () -> Unit) {
         )
         Spacer(Modifier.height(64.dp))
         Button(
-            onClick = onCreateAccount,
+            onClick = onTeaserTwo,
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF800000)),
             modifier = Modifier
                 .fillMaxWidth(0.7f)
@@ -68,8 +70,17 @@ fun CreateAccountScreen(onCreateAccount: () -> Unit) {
         }
     }
 }
+
+//@Composable
+//fun CreateAccountScreen(navController: NavHostController) {
+//    Text(text = "Create Account Screen")
+//
+//}
 @Preview(showBackground = true)
 @Composable
 fun SecondScreenPreview() {
-    com.ecorise.ecorise.CreateAccountScreen(onCreateAccount = {})
+    TeaserTwoScreen(onTeaserTwo = {})
 }
+
+
+

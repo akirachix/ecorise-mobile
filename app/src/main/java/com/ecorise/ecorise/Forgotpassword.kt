@@ -86,7 +86,7 @@ fun ForgotPasswordScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 32.dp),
-//
+
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
         )
 

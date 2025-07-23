@@ -30,5 +30,5 @@ fun EcoRiseApp() {
 
     when (currentScreen) {
         "first" -> TeaserScreen(onGetStarted = { currentScreen = "second" })
-        "second" -> CreateAccountScreen(onCreateAccount = { currentScreen = "login" })}}
+        "second" -> TeaserTwoScreen (onTeaserTwo = { currentScreen = "login" })}}
 

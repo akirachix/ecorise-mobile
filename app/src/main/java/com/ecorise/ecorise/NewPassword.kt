@@ -34,7 +34,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun PasswordScreen() {
+fun PasswordScreen(
+    onSubmit: () -> Unit = {}
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -104,7 +106,7 @@ fun PasswordScreen() {
 
 
         Button(
-            onClick = {  },
+            onClick = onSubmit,
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF800000),
                 contentColor = Color.White
